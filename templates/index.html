@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>IOC Checker Pro - VirusTotal Analysis</title>
+    <meta name="description" content="Herramienta gratuita para analizar Indicadores de Compromiso (IOCs). Verifica IPs, Dominios, URLs y Hashes contra la base de datos de VirusTotal al instante.">
+    <meta name="keywords" content="IOC checker, VirusTotal API, threat hunting, ciberseguridad, analizar malware, ip scanner, hash checker">
+    <meta name="author" content="Juanse & Daniel">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://checkyourioc.pythonanywhere.com/">
+
+    <link rel="icon" type="image/png" href="/static/virus.png">
+    <link rel="apple-touch-icon" href="/static/virus.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://checkyourioc.pythonanywhere.com/">
+    <meta property="og:title" content="IOC Checker Pro - Análisis de Amenazas">
+    <meta property="og:description" content="Analiza listas de IPs y Hashes sospechosos gratis con la tecnología de VirusTotal.">
+    <meta property="og:image" content="https://checkyourioc.pythonanywhere.com/static/virus.png">
+    <meta property="og:site_name" content="IOC Checker">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="IOC Checker Pro">
+    <meta name="twitter:description" content="Verifica indicadores de compromiso rápidamente.">
+    <meta name="twitter:image" content="https://checkyourioc.pythonanywhere.com/static/virus.png">
+
+    <link rel="stylesheet" href="/static/estilos.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1><i class="fa-solid fa-shield-virus"></i> IOC Checker</h1>
+            <p>Analiza indicadores de compromiso usando la API v3 de VirusTotal.</p>
+        </header>
+
+        <section class="config-section">
+            <div class="input-group">
+                <label for="api-key">API Key de VirusTotal</label>
+                <input type="password" id="api-key" placeholder="Introduce tu API Key aquí" autocomplete="off">
+            </div>
+
+            <div class="control-row">
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="modo" value="Filtrado" checked>
+                        <span>Modo Inteligente (Extrae del texto hashes, URLs, IPs y dominios)</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="modo" value="Completo">
+                        <span>Modo Lista (Un IOC por línea)</span>
+                    </label>
+                </div>
+                
+                <div class="delay-group">
+                    <label for="delay-input">Pausa entre peticiones(seg):</label>
+                    <input type="number" id="delay-input" value="16" min="0">
+                    
+                    <div class="hint-container">
+                        <small class="hint">Cuentas Free: usar 16s.</small>
+                        <div class="tooltip">
+                            <i class="fa-solid fa-circle-info info-icon"></i>
+                            <span class="tooltiptext">
+                                <strong>Límites Free:</strong><br>
+                                • 4 peticiones / minuto<br>
+                                • 500 peticiones / día
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="session-counter" title="IOCs procesados desde que abriste la página">
+                        <i class="fa-solid fa-calculator"></i> Total de IOCs en la Sesión: <span id="session-total">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="input-section">
+            <label for="ioc-input">Introduce los IOCs (Texto sin procesar o lista):</label>
+            <textarea id="ioc-input" rows="6" placeholder="Pega aquí tu email, logs o lista de IPs/Hashes..."></textarea>
+            
+            <div class="action-buttons">
+                <button onclick="iniciarProceso()" id="btn-check" class="btn-primary">
+                    <i class="fa-solid fa-magnifying-glass"></i> Analizar
+                </button>
+                <button onclick="limpiarTodo()" class="btn-secondary">
+                    <i class="fa-solid fa-trash"></i> Limpiar
+                </button>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div id="progress-container" style="display: none;">
+                <div class="progress-bar-bg">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <p id="status-text">Esperando...</p>
+            </div>
+
+            <div class="table-container">
+                <table id="results-table">
+                    <thead>
+                        <tr>
+                            <th onclick="ordenarTabla(0)">IOC <i class="fa-solid fa-sort"></i></th>
+                            <th onclick="ordenarTabla(1)">Tipo <i class="fa-solid fa-sort"></i></th>
+                            <th onclick="ordenarTabla(2)">Detecciones <i class="fa-solid fa-sort"></i></th>
+                            <th onclick="ordenarTabla(3)">Estado <i class="fa-solid fa-sort"></i></th>
+                            <th>Enlace</th> </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+            
+            <div id="stats-summary" style="display:none">
+                <span id="summary-text"></span>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Desarrollado con Flask y JS Vanilla. <a href="https://github.com/CCDani" target="_blank">GitHub</a></p>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #4338ca;
+    --bg: #f3f4f6;
+    --card-bg: #ffffff;
+    --text: #1f2937;
+    --border: #e5e7eb;
+    --danger: #ef4444;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+#app {
+    /* CAMBIO: Ancho fluido al 95% para ver URLs completas */
+    width: 95%; 
+    max-width: 1800px; /* Un límite muy alto para pantallas ultrawide */
+    margin: 40px auto;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+header {
+    background-color: var(--primary);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 { margin: 0; font-size: 1.8rem; }
+header p { margin: 5px 0 0; opacity: 0.9; font-size: 0.9rem; }
+
+section { padding: 20px; border-bottom: 1px solid var(--border); }
+
+/* Inputs y Controles */
+.input-group label { display: block; font-weight: 600; margin-bottom: 5px; }
+input[type="password"], input[type="number"], textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box; 
+}
+
+.control-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.radio-group { display: flex; gap: 15px; }
+.radio-group label { display: flex; align-items: center; cursor: pointer; }
+.radio-group input { margin-right: 8px; }
+
+.delay-group { display: flex; align-items: center; gap: 10px; }
+.delay-group input { width: 60px; }
+.hint { font-size: 0.8rem; color: #6b7280; }
+
+/* Botones */
+.action-buttons { display: flex; gap: 10px; margin-top: 10px; }
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary { background-color: var(--primary); color: white; }
+.btn-primary:hover { background-color: var(--primary-dark); }
+.btn-primary:disabled { background-color: #a5a6f6; cursor: not-allowed; }
+
+.btn-secondary { background-color: white; border: 1px solid var(--border); color: var(--text); }
+.btn-secondary:hover { background-color: var(--bg); }
+
+/* Barra de Progreso */
+#progress-container { margin-bottom: 20px; }
+.progress-bar-bg {
+    height: 8px;
+    background-color: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+#status-text { font-size: 0.9rem; text-align: center; margin-top: 5px; color: #6b7280; }
+
+/* Tabla de Resultados */
+.table-container { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+
+/* CAMBIO: Headers clickeables para ordenar */
+th { 
+    text-align: left; 
+    padding: 12px; 
+    background-color: #f9fafb; 
+    border-bottom: 2px solid var(--border); 
+    font-weight: 600; 
+    cursor: pointer; /* Indica que es clickeable */
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+th:hover {
+    background-color: #e5e7eb;
+}
+
+th i {
+    margin-left: 5px;
+    color: #9ca3af;
+    font-size: 0.8em;
+}
+
+td { padding: 10px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+
+/* CAMBIO: Estilos para ver URLs completas */
+.col-ioc { 
+    font-family: monospace; 
+    /* Quitamos el max-width restrictivo y el ellipsis */
+    white-space: normal; 
+    word-break: break-all; /* Rompe la palabra si es una URL larguísima */
+    min-width: 200px; /* Asegura un ancho mínimo decente */
+}
+
+/* Badges de Estado */
+.badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+    white-space: nowrap;
+}
+.status-clean { background-color: #d1fae5; color: #065f46; }
+.status-warning { background-color: #fef3c7; color: #92400e; }
+.status-malicious { background-color: #fee2e2; color: #991b1b; }
+.status-error { background-color: #f3f4f6; color: #374151; }
+
+.link-vt { color: var(--primary); text-decoration: none; font-weight: 600; white-space: nowrap; }
+.link-vt:hover { text-decoration: underline; }
+
+/* Footer */
+footer { text-align: center; padding: 20px; font-size: 0.85rem; color: #6b7280; }
+footer a { color: var(--primary); text-decoration: none; }
+
+@media (max-width: 600px) {
+    .control-row { flex-direction: column; align-items: flex-start; }
+    /* En móvil sí podemos truncar un poco si es necesario, pero break-all suele ir bien */
+}
+
+/* --- Tooltip y Contador --- */
+
+/* Contenedor para alinear texto e icono */
+.hint-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-icon {
+    color: var(--primary);
+    cursor: help;
+}
+
+/* El contenedor del tooltip (la "i") */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* El texto del tooltip (oculto por defecto) */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Lo coloca encima del icono */
+    left: 50%;
+    margin-left: -80px; /* Centrado */
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    line-height: 1.4;
+}
+
+/* Flechita del tooltip (triángulo abajo) */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+/* Mostrar al pasar el ratón */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Estilo del Contador de Sesión */
+.session-counter {
+    background-color: #e0e7ff; /* Azul muy suave */
+    color: var(--primary-dark);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid #c7d2fe;
+    white-space: nowrap;
+}
